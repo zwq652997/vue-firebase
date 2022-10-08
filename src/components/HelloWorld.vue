@@ -39,10 +39,10 @@ export default {
       });
     });
 
-    // const querySnapshot = await getDocs(collection(db, 'listing'));
-    // querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-    // });
+    const querySnapshot = await getDocs(collection(db, 'listing'));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+    });
 
     // const unsub = onSnapshot(
     //   doc(db, 'listing', '7OzB3G8B0IsJot2uzgNz'),
@@ -51,13 +51,15 @@ export default {
     //   }
     // );
 
-    // const qt = query(collection(db, 'trades'));
-    // const unsubscribet = onSnapshot(qt, (querySnapshot) => {
-    //   // 数据只要更新就触发
-    //   querySnapshot.forEach((doc) => {
-    //     console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-    //   });
-    // });
+    const qt = query(collection(db, 'trades'));
+    const unsubscribet = onSnapshot(qt, (querySnapshot) => {
+      // 数据只要更新就触发
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+      });
+    });
+
+    // 查询count
   },
 };
 </script>
