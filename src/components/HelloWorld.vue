@@ -50,6 +50,14 @@ export default {
     //     console.log('Current data: ', doc.data());
     //   }
     // );
+
+    // const qt = query(collection(db, 'trades'));
+    // const unsubscribet = onSnapshot(qt, (querySnapshot) => {
+    //   // 数据只要更新就触发
+    //   querySnapshot.forEach((doc) => {
+    //     console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+    //   });
+    // });
   },
 };
 </script>
