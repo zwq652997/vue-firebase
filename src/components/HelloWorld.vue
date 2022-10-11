@@ -34,9 +34,9 @@ export default {
       //   }
       // });
       // 数据只要更新就触发
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-      });
+      // querySnapshot.forEach((doc) => {
+      //   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+      // });
     });
 
     const querySnapshot = await getDocs(collection(db, 'listing'));
