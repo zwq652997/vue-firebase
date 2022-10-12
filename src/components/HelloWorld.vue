@@ -19,30 +19,32 @@ export default {
     msg: String,
   },
   async created() {
-    const q = query(collection(db, 'listing'));
+    const q = query(
+      collection(db, '0x266a5797e803e5e299a806afa51fb2d80ec31911')
+    );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       // 可以监听哪些是更改，哪些是删除，哪些是新增
-      // querySnapshot.docChanges().forEach((change) => {
-      //   if (change.type === 'added') {
-      //     console.log('New city: ', change.doc.data());
-      //   }
-      //   if (change.type === 'modified') {
-      //     console.log('Modified city: ', change.doc.data());
-      //   }
-      //   if (change.type === 'removed') {
-      //     console.log('Removed city: ', change.doc.data());
-      //   }
-      // });
+      querySnapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          console.log('New : ', change.doc.data());
+        }
+        if (change.type === 'modified') {
+          console.log('Modified : ', change.doc.data());
+        }
+        if (change.type === 'removed') {
+          console.log('Removed : ', change.doc.data());
+        }
+      });
       // 数据只要更新就触发
       // querySnapshot.forEach((doc) => {
       //   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
       // });
     });
 
-    const querySnapshot = await getDocs(collection(db, 'listing'));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-    });
+    // const querySnapshot = await getDocs(collection(db, 'listing'));
+    // querySnapshot.forEach((doc) => {
+    //   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+    // });
 
     // const unsub = onSnapshot(
     //   doc(db, 'listing', '7OzB3G8B0IsJot2uzgNz'),
@@ -51,13 +53,13 @@ export default {
     //   }
     // );
 
-    const qt = query(collection(db, 'trades'));
-    const unsubscribet = onSnapshot(qt, (querySnapshot) => {
-      // 数据只要更新就触发
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-      });
-    });
+    // const qt = query(collection(db, 'trades'));
+    // const unsubscribet = onSnapshot(qt, (querySnapshot) => {
+    //   // 数据只要更新就触发
+    //   querySnapshot.forEach((doc) => {
+    //     console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+    //   });
+    // });
 
     // 查询count
   },
